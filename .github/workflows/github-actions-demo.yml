@@ -35,5 +35,5 @@ jobs:
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -e SCALOCK_LOG_LEVEL=DEBUG --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:6.2 scan --host \
-          https://b97365a369a6.ngrok.io --local test:v1 --checkonly --no-verify --html --user ${{ secrets.USERNAME}} --password ${{ secrets.PASSWORD }}
+          docker run -e SCALOCK_LOG_LEVEL=DEBUG --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:6.2 scan  http://aqua-server:8080 --local test:v1 --checkonly --no-verify --html --user ${{ secrets.USERNAME}} --password ${{ secrets.PASSWORD }}
+
