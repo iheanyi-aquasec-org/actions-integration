@@ -27,12 +27,13 @@ jobs:
       - name: Login to Aqua Registry
         uses: docker/login-action@v1
         with:
-          registry: registry.hub.docker.com
-          username: iheanyinjeze
-          password: Okezie12.
+          registry: registry.aquasec.com
+          username: ${{ secrets.AQUADEV_USERNAME }}
+          password: ${{ secrets.AQUADEV_PASS }}
+      
       
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -e SCALOCK_LOG_LEVEL=DEBUG --rm -v /var/run/docker.sock:/var/run/docker.sock aquadev.azurecr.io/scanner-cli:master scan --host \
+          docker run -e SCALOCK_LOG_LEVEL=DEBUG --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:6.2 scan --host \
           https://b97365a369a6.ngrok.io --local test:v1 --checkonly --no-verify --html --user ${{ secrets.USERNAME}} --password ${{ secrets.PASSWORD }}
