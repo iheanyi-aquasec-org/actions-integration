@@ -27,9 +27,9 @@ jobs:
       - name: Login to Aqua Registry
         uses: docker/login-action@v1
         with:
-          registry: aquadev.azurecr.io
-          username: ${{ secrets.AQUADEV_USERNAME }}
-          password: ${{ secrets.AQUADEV_PASS }}
+          registry: registry.hub.docker.com
+          username: iheanyinjeze
+          password: Okezie12.
       
       # Scan the test Image
       - name: Run the scanner 
