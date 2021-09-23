@@ -35,4 +35,5 @@ jobs:
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -e SCALOCK_LOG_LEVEL=DEBUG -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:6.2 scan --host http://52.157.251.48:8080 --local test:v1 --checkonly --no-verify --html --user ${{ secrets.USERNAME}} --password ${{ secrets.PASSWORD }} 
+          docker run -e SCALOCK_LOG_LEVEL=DEBUG -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:6.2 scan --host http://52.157.251.48:8080 --local test:v1 --checkonly --no-verify --html --user ${{ secrets.USERNAME}} --password ${{ secrets.PASSWORD }} -e BUILD_JOB_NAME=FRUIT_BANK -e BUILD_NUMBER=1
+
