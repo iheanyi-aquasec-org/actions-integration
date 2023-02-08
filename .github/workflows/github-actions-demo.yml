@@ -35,4 +35,4 @@ jobs:
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2022.4 scan --host ${{secrets.HOST}} --token ${{ secrets.TOKEN }} --local test:v1 --no-verify --layer-vulnerabilities 
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2022.4 scan --host ${{secrets.HOST}} --token ${{ secrets.TOKEN }} --local test:v1 --no-verify --layer-vulnerabilities 
