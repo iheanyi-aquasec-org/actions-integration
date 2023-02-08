@@ -35,5 +35,5 @@ jobs:
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -e SCALOCK_LOG_LEVEL=DEBUG -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2301.4.11 scan --host ${{secrets.HOST}} --token ${{ secrets.TOKEN }} --local test:v1 --layer-vulnerabilities
+          docker run -e SCALOCK_LOG_LEVEL=DEBUG -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2301.4.11 scan  --local --host ${{secrets.HOST}} --token ${{ secrets.TOKEN }} --local test:v1 --layer-vulnerabilities
 
