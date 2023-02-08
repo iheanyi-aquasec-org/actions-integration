@@ -21,7 +21,7 @@ jobs:
 
       # Runs docker build 
       - name: Build docker image
-        run: docker build -t test:v1 .
+        run: docker build -t ih-test:1.1 .
 
       # Aqua Registry login
       - name: Login to Aqua Registry
