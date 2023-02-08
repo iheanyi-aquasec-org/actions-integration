@@ -21,7 +21,7 @@ jobs:
 
       # Runs docker build 
       - name: Build docker image
-        run: docker build -t ih-test:1.1 .
+        run: docker build -t test:v1 .
 
       # Aqua Registry login
       - name: Login to Aqua Registry
@@ -35,5 +35,5 @@ jobs:
       # Scan the test Image
       - name: Run the scanner 
         run: |
-          docker run -e SCALOCK_LOG_LEVEL=DEBUG -e BUILD_JOB_NAME=FRUIT_BANK -e BUILD_NUMBER=${{ github.run_id }} -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2022.4 scan --host ${{secrets.HOST}} --local ih-test:1.1 --checkonly --no-verify --html --token ${{ secrets.TOKEN }}
+          docker run -e SCALOCK_LOG_LEVEL=DEBUG -e BUILD_JOB_NAME=FRUIT_BANK -e BUILD_NUMBER=${{ github.run_id }} -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2022.4 scan --host ${{secrets.HOST}} --local test:v1 --checkonly --no-verify --html --token ${{ secrets.TOKEN }}
 
