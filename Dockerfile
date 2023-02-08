@@ -1,4 +1,4 @@
-FROM node:7.2.0
+FROM node:18.14.0
 
 # Create a new user to our new container and avoid the root user
 RUN useradd --user-group --create-home --shell /bin/bash nupp && \
