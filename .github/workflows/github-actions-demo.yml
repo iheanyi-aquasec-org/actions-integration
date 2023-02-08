@@ -37,11 +37,11 @@ jobs:
         run: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock registry.aquasec.com/scanner:2022.4 scan --host https://225fccbcb7.cloud.aquasec.com/ --local test:v1 --token ${{ secrets.TOKEN }} --layer-vulnerabilities --no-verify --htmlfile scan-output.html
     
-     # Create scan artifact
-     - name: Upload Artifact
-     uses: actions/upload-artifact@v3
-         with:
-           name: my-artifact
-           path: scan-output.html
-           retention-days: 5
+      # Create scan artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+         name: my-artifact
+         path: scan-output.html
+         retention-days: 5
      
