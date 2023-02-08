@@ -9,7 +9,7 @@ COPY index.js $HOME/app/
 COPY exoticfruits.json $HOME/app/
 RUN chown -R nupp:nupp $HOME/* /usr/local/
 WORKDIR $HOME/app
-RUN npm cache clean && \
+RUN npm cache clean --force && \
     npm install --silent --progress=false --production
 RUN chown -R nupp:nupp $HOME/*
 USER nupp
