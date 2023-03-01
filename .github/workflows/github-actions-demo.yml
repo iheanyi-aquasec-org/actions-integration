@@ -27,7 +27,7 @@ jobs:
           TRIVY_RUN_AS_PLUGIN: 'aqua'
 
   # Allows you to run this workflow manually from the Actions tab
-  build:
+  Image Build and Scan:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
