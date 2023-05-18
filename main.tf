@@ -114,3 +114,6 @@ resource "aws_s3_bucket_policy" "logging" {
 }
 POLICY2
 }
+
+
+#test
