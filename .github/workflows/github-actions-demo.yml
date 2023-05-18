@@ -15,7 +15,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Setup pipeline enforcer
+        uses: aquasecurity/pipeline-enforcer-action@main
+        with:
+          aqua-key: ${{ secrets.AQUA_KEY }}
+          aqua-secret: ${{ secrets.AQUA_SECRET }}
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner
         with:
@@ -38,7 +42,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+     
       # Runs docker build 
       - name: Build docker image
         run: docker build -t test:v1 .
